@@ -19,8 +19,8 @@ fun main(args: Array<String>) {
 
 
         when (response) {
-            1 -> printRecipes()
-            2 -> print("Su lista de recetas es: ")
+            1 -> makeRecipe()
+            2 -> viewRecipe()
             3 -> print("Gracias por usar nuestros servicios")
             0 -> println("Digite un valor")
             else -> println("No está en alguno de los anteriores")
@@ -30,9 +30,19 @@ fun main(args: Array<String>) {
     }while(response != 3)
 }
 
-fun printRecipes(){
-    println("Los ingredientes son: ")
+fun makeRecipe(){
+    val mensaje: String = """
+        Hacer receta
+        Selecciona por categoria el ingrediente que buscas
+    """.trimIndent()
+    println(mensaje)
     for (recipe in ingredientes){
-        println(recipe)
+        var index = 1
+        println("$index. $recipe")
+        index++
     }
+}
+
+fun viewRecipe(){
+    println("Ver mis recetas")
 }
